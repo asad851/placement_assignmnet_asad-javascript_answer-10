@@ -5,34 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Debouncing</title>
+   <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-        <input type="search" name="" id="" onkeyup="data() " >
-        <div class="meals"></div>
+       <div class="container">
+        <input type="search" name="" id="" onkeyup="data()"  >
+        
+       </div>
         <script>
-            let meals = document.querySelector('.meals');
             
-            let count=1;
-            let Data=null;
-            let text;
-           let res= fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=')
-           res
-         .then(response => response.json())
-          .then(res => {let mealsData= res
-           Data=mealsData;
-        })
-
-
+           let count=1;
+           let text ;
             function getData(){
+               console.log(`fetching data ${count++}`)
+            
+            
+        }
              
-             
-             
+             console.log(text)
 
-            }
-            console.log(Data)
+            
+            
 
             function Debouncing (fn,t){
+                
                 let timer;
                return function(){
                  clearTimeout(timer)
@@ -42,12 +39,10 @@
                }
               
             }
-           const data=()=> {
-            Debouncing(getData,400)
-            
-        }
-            //  console.log(text)
+           let data=Debouncing(getData,400)
+        
+        
         </script>
 </body>
 
-</html>                                        
+</html>                                       
